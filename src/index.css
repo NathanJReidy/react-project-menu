@@ -184,7 +184,7 @@ section {
   margin-top: 1rem;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
   section {
     flex-direction: column;
     width: 90%;
@@ -206,6 +206,38 @@ section {
   .foodContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
+  }
+
+  .foodImage {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  section {
+    flex-direction: column;
+    width: 90%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+  }
+
+  .gridContainer {
+    /* grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr; */
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .foodContainer {
+    display: flex;
+    flex-direction: row;
+    /* width: 100%;
+    max-width: 20rem; */
   }
 
   .foodImage {
