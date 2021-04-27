@@ -192,4 +192,23 @@ section {
     margin-bottom: 2rem;
     padding: 1.5rem;
   }
+
+  .gridContainer {
+    /* grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr; */
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .foodContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .foodImage {
+    margin-bottom: 1rem;
+  }
 }

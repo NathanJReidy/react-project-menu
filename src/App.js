@@ -11,6 +11,7 @@ function App() {
   const filterItems = (category) => {
     if (category === "all") {
       setFood(items);
+      return;
     }
     const newItems = items.filter((item) => item.category === category);
     setFood(newItems);
@@ -22,21 +23,7 @@ function App() {
         <h2>Our Menu</h2>
         <Categories categories={categories} filterItems={filterItems} />
 
-        <div className="gridContainer">
-          {food.map((item) => {
-            const { id, title, category, price, img, desc } = item;
-            return (
-              <Menu
-                id={id}
-                title={title}
-                category={category}
-                price={price}
-                img={img}
-                desc={desc}
-              />
-            );
-          })}
-        </div>
+        <Menu items={food} />
       </section>
     </main>
   );
