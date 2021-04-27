@@ -2,32 +2,26 @@ import React, { useState } from "react";
 import Menu from "./Menu";
 import Categories from "./Categories";
 import items from "./data";
+const allCategories = ["all", ...new Set(items.map((item) => item.category))];
 
 function App() {
   const [food, setFood] = useState(items);
-  const [all, setAll] = useState(true);
-  const [breakfast, setBreakfast] = useState(false);
-  const [lunch, setLunch] = useState(false);
-  const [shakes, setShakes] = useState(false);
+  const [categories, setCategories] = useState(allCategories);
+
+  const filterItems = (category) => {
+    if (category === "all") {
+      setFood(items);
+    }
+    const newItems = items.filter((item) => item.category === category);
+    setFood(newItems);
+  };
 
   return (
     <main>
       <section>
         <h2>Our Menu</h2>
-        <div className="btnContainer">
-          <button className="category" onClick={() => setAll(!all)}>
-            All
-          </button>
-          <button className="category" onClick={() => setBreakfast(!breakfast)}>
-            Breakfast
-          </button>
-          <button className="category" onClick={() => setLunch(!lunch)}>
-            Lunch
-          </button>
-          <button className="category" onClick={() => setShakes(!shakes)}>
-            Shakes
-          </button>
-        </div>
+        <Categories categories={categories} filterItems={filterItems} />
+
         <div className="gridContainer">
           {food.map((item) => {
             const { id, title, category, price, img, desc } = item;
